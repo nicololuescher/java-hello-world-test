@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'registry.nicolo.info/myjenkins-agent:latest'
+            label 'maven-agent'
+        }
+    }
 
     stages {
         stage('Checkout') {
